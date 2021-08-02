@@ -3,7 +3,7 @@ import { Card, Button } from 'react-bootstrap';
 
 const BreweryCard = () => {
     return(
-        <Card>
+        <Card className='mb-4'>
             <Card.Header>Brewery Name</Card.Header>
                 <Card.Body>
                 <Card.Title>City and State</Card.Title>

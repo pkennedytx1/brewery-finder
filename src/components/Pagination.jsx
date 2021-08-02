@@ -13,7 +13,7 @@ for (let number = 1; number <= 5; number++) {
 
 const CardPagination = () => {
     return(
-        <Pagination>{items}</Pagination>
+        <Pagination style={{ justifyContent: 'center' }}>{items}</Pagination>
     )
 }
 

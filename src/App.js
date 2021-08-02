@@ -5,6 +5,7 @@ import BreweryRenderer from './containers/BreweryRenderer';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import { Container, Row, Col } from 'react-bootstrap';
 
 function App() {
   return (
@@ -19,7 +20,22 @@ function App() {
         </ul>
         <h1>Components</h1>
         <SearchBar />
-        <BreweryCard />
+        <Container>
+          <Row>
+            <Col sm={12} md={6} lg={4}>
+              <BreweryCard />
+            </Col>
+            <Col sm={12} md={6} lg={4}>
+              <BreweryCard />
+            </Col>
+            <Col sm={12} md={6} lg={4}>
+              <BreweryCard />
+            </Col>
+            <Col sm={12} md={6} lg={4}>
+              <BreweryCard />
+            </Col>
+          </Row>
+        </Container>
         <CardPagination />
       </div>
     </BreweryRenderer>
