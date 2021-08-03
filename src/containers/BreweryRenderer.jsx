@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
+import { BreweryContext } from '../store';
 import axios from 'axios';
 
-const BreweryRenderer = ({ children, pageNumber, setBreweryData, searchCity, setLoading }) => {
+const BreweryRenderer = ({ children }) => {
+    const { breweryState, dispatchBreweryData } = useContext(BreweryContext);
+    const { searchCity, pageNumber } = breweryState;
+
     useEffect(() => {
-        setLoading(true);
+        dispatchBreweryData({ type: 'SET_LOADING', payload: true })
         fetchBreweryData();
     }, [searchCity, pageNumber])
 
@@ -15,8 +19,8 @@ const BreweryRenderer = ({ children, pageNumber, setBreweryData, searchCity, set
             console.error(error);
             response = error;
         } finally {
-            setLoading(false);
-            setBreweryData(response.data);
+            dispatchBreweryData({ type: 'SET_LOADING', payload: false })
+            dispatchBreweryData({ type: 'SET_BREWERY_DATA', payload: response.data })
         }
     }
 

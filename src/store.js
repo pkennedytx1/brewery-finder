@@ -28,7 +28,7 @@ export const BreweryProvider = ({ children }) => {
             case 'SET_PAGE_NUMBER':
                 currentState.pageNumber = action.payload;
                 return currentState;
-            default:
+            default:   
                 throw new Error('No valid action given to the reducer.');
         }
     }, initialState)
