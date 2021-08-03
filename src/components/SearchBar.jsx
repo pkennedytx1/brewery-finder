@@ -3,7 +3,7 @@ import { InputGroup, FormControl, Button } from 'react-bootstrap';
 
 const SearchBar = ({ city, setCity, setSearchCity }) => {
     return(
-        <InputGroup className="mb-3">
+        <InputGroup style={{ maxWidth: '500px', margin: '20px auto' }} className="mb-3">
             <FormControl
                 placeholder="Search Brewery By City"
                 aria-label="Search Brewery By City"

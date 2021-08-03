@@ -1,19 +1,13 @@
 import React from 'react';
 import { Pagination } from 'react-bootstrap';
 
-let active = 5;
-let items = [];
-for (let number = 1; number <= 5; number++) {
-    items.push(
-        <Pagination.Item activeLabel='' key={number} active={number === active}>
-            {number}
-        </Pagination.Item>,
-    );
-}
-
-const CardPagination = () => {
+const CardPagination = ({ setPageNumber, pageNumber, endOfData }) => {
     return(
-        <Pagination style={{ justifyContent: 'center' }}>{items}</Pagination>
+        <Pagination style={{ justifyContent: 'center' }}>
+            {pageNumber > 1 && <Pagination.Prev onClick={() => setPageNumber(pageNumber - 1)} />}
+            <Pagination.Item>{pageNumber}</Pagination.Item>
+            {!endOfData && <Pagination.Next onClick={() => setPageNumber(pageNumber + 1)} />}
+        </Pagination>
     )
 }
 

@@ -6,24 +6,22 @@ import BreweryRenderer from './containers/BreweryRenderer';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Navbar } from 'react-bootstrap';
 
 function App() {
   const [breweryData, setBreweryData] = useState([]);
   const [city, setCity] = useState('austin');
   const [searchCity, setSearchCity] = useState('austin');
+  const [pageNumber, setPageNumber] = useState(1);
 
   return (
-    <BreweryRenderer searchCity={searchCity} breweryData={breweryData} setBreweryData={setBreweryData} >
+    <BreweryRenderer pageNumber={pageNumber} searchCity={searchCity} breweryData={breweryData} setBreweryData={setBreweryData} >
       <div className="App">
-        <div>Brewery Finder</div>
-        <ul>
-          <li>Create axios call to OpenBrewery</li>
-          <li>Hook up components (below)</li>
-          <li>Pagination</li>
-          <li>Bonus: global state</li>
-        </ul>
-        <h1>Components</h1>
+      <Navbar bg="primary" variant="dark">
+        <Container>
+          <Navbar.Brand href="#home">Brewery Finder</Navbar.Brand>
+        </Container>
+      </Navbar>
         <SearchBar setSearchCity={setSearchCity} setCity={setCity} city={city} />
         <Container>
           <Row>
@@ -36,7 +34,7 @@ function App() {
             }) : <h3>No Brewery Data to Display</h3>}
           </Row>
         </Container>
-        <CardPagination />
+        <CardPagination endOfData={breweryData.length < 6 ? true : false} pageNumber={pageNumber} setPageNumber={setPageNumber} />
       </div>
     </BreweryRenderer>
   );
