@@ -3,6 +3,7 @@ import { Card, Button } from 'react-bootstrap';
 
 const BreweryCard = ({ brewery }) => {
     const { name, website_url, street, state, city } = brewery;
+
     return(
         <Card className='mb-4' style={{ minHeight: '200px' }}>
             <Card.Header>

@@ -18,11 +18,11 @@ function App() {
   return (
     <BreweryRenderer setLoading={setLoading} pageNumber={pageNumber} searchCity={searchCity} breweryData={breweryData} setBreweryData={setBreweryData} >
       <div className="App">
-      <Navbar bg="primary" variant="dark">
-        <Container>
-          <Navbar.Brand href="#home">Brewery Finder</Navbar.Brand>
-        </Container>
-      </Navbar>
+        <Navbar bg="primary" variant="dark">
+          <Container>
+            <Navbar.Brand href="#home">Brewery Finder</Navbar.Brand>
+          </Container>
+        </Navbar>
         <SearchBar isLoading={isLoading} setSearchCity={setSearchCity} setCity={setCity} city={city} />
         <Container>
           <Row>
