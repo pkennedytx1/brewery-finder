@@ -13,16 +13,17 @@ function App() {
   const [city, setCity] = useState('austin');
   const [searchCity, setSearchCity] = useState('austin');
   const [pageNumber, setPageNumber] = useState(1);
+  const [isLoading, setLoading] = useState(true);
 
   return (
-    <BreweryRenderer pageNumber={pageNumber} searchCity={searchCity} breweryData={breweryData} setBreweryData={setBreweryData} >
+    <BreweryRenderer setLoading={setLoading} pageNumber={pageNumber} searchCity={searchCity} breweryData={breweryData} setBreweryData={setBreweryData} >
       <div className="App">
       <Navbar bg="primary" variant="dark">
         <Container>
           <Navbar.Brand href="#home">Brewery Finder</Navbar.Brand>
         </Container>
       </Navbar>
-        <SearchBar setSearchCity={setSearchCity} setCity={setCity} city={city} />
+        <SearchBar isLoading={isLoading} setSearchCity={setSearchCity} setCity={setCity} city={city} />
         <Container>
           <Row>
             {breweryData?.length > 0 ? breweryData.map((brewery, i) => {

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const BreweryRenderer = ({ children, pageNumber, setBreweryData, searchCity }) => {
+const BreweryRenderer = ({ children, pageNumber, setBreweryData, searchCity, setLoading }) => {
     useEffect(() => {
+        setLoading(true);
         fetchBreweryData();
     }, [searchCity, pageNumber])
 
@@ -14,6 +15,7 @@ const BreweryRenderer = ({ children, pageNumber, setBreweryData, searchCity }) =
             console.error(error);
             response = error;
         } finally {
+            setLoading(false);
             setBreweryData(response.data);
         }
     }
