@@ -18,7 +18,9 @@ const SearchBar = ({ city, setCity, setSearchCity, isLoading }) => {
                     setCity(e.target.value);
                 }}
             />
-            <Button onClick={() => setSearchCity(city)} variant="outline-success" id="button-addon2">
+            <Button onClick={() => setSearchCity(city)} variant="primary" id="button-addon2">
+                <i class="bi bi-search"></i>
+                {' '}
                 Search Breweries
             </Button>
         </InputGroup>
