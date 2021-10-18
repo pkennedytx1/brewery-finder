@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Card, Button } from 'react-bootstrap';
 
 const BreweryCard = ({ brewery }) => {
     const { name, website_url, street, state, city } = brewery;
+
+    useEffect(() => {
+        console.log('hello');
+    }, [])
 
     return(
         <Card className='mb-4' style={{ minHeight: '200px' }}>
